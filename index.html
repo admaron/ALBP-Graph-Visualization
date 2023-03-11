@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Adam Geppert">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+
+    <title>ALBP Graph Visualization</title>
+</head>
+
+<body>
+    <header>
+        <svg width="30" height="18" viewBox="0 0 30 18" fill="none" xmlns="http://www.w3.org/2000/svg" id="sourceBTN"
+            class="hide">
+            <line y1="1.25" x2="15" y2="1.25" stroke="#3568cc" stroke-width="3" />
+            <line y1="9.25" x2="30" y2="9.25" stroke="#3568cc" stroke-width="3" />
+            <line x1="15" y1="17.25" x2="30" y2="17.25" stroke="#3568cc" stroke-width="3" />
+        </svg>
+    </header>
+
+    <div id="notification">
+        <i class="fa-solid fa-circle-info"></i>
+        <p>Data copied to clipboard!</p>
+    </div>
+
+    <div id="highlight"></div>
+
+    <div id="sourceWrapper">
+        <h1>Choose a TXT file or enter data manually</h1>
+        <form>
+            <input type="file" id="filePicker" accept=".txt" required>
+        </form>
+        <textarea id="source" placeholder='Op 1 1 "succs" [2, 3],&#10Op 2 1 "preds" [1]' spellcheck="false"></textarea>
+        <div>
+            <button id="copyBTN">Copy data</button>
+            <button id="updateBTN">Update Graph</button>
+        </div>
+    </div>
+
+    <div id="visualizationWrapper">
+    </div>
+
+
+
+    <script src="leader-line.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>
