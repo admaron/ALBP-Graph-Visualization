@@ -12,6 +12,8 @@ window.onload = () => {
 
     let Data = [];
     let nodesStorage = [-1];
+    let highlightCurrLine = 0;
+    let error = false;
 
     //! Window resize handler
     window.addEventListener('resize', () => {
@@ -20,6 +22,13 @@ window.onload = () => {
         nodeConnection.forEach(e => {
             e.remove();
         });
+
+        if (error) {
+            let pos = sourceTXTAREA.getBoundingClientRect();
+            highlight.style.top = (pos.top + 30 + (highlightCurrLine * 25.2)) + "px";
+            highlight.style.left = (pos.left + 30) + "px";
+            highlight.style.opacity = 0.3;
+        }
 
         generateConnections();
     });
@@ -134,9 +143,11 @@ window.onload = () => {
             notificationElem.style.pointerEvents = "auto";
 
             let pos = sourceTXTAREA.getBoundingClientRect();
-            highlight.style.top = (pos.top + 30 + ((sourceData.split("\n").length - 1) * 25.2)) + "px";
+            highlightCurrLine = (sourceData.split("\n").length - 1);
+            highlight.style.top = (pos.top + 30 + (highlightCurrLine * 25.2)) + "px";
             highlight.style.left = (pos.left + 30) + "px";
             highlight.style.opacity = 0.3;
+            error = true;
 
             setTimeout(() => {
                 notificationElem.style.opacity = 0;
@@ -178,6 +189,7 @@ window.onload = () => {
             notificationElem.style.opacity = 1;
             notificationElem.style.pointerEvents = "auto";
             highlightLine();
+            error = true;
 
             setTimeout(() => {
                 notificationElem.style.opacity = 0;
@@ -206,6 +218,7 @@ window.onload = () => {
             notificationElem.style.opacity = 1;
             notificationElem.style.pointerEvents = "auto";
             highlightLine();
+            error = true;
 
             setTimeout(() => {
                 notificationElem.style.opacity = 0;
@@ -232,6 +245,7 @@ window.onload = () => {
             notificationElem.style.opacity = 1;
             notificationElem.style.pointerEvents = "auto";
             highlightLine();
+            error = true;
 
             setTimeout(() => {
                 notificationElem.style.opacity = 0;
@@ -252,6 +266,7 @@ window.onload = () => {
                     notificationElem.style.opacity = 1;
                     notificationElem.style.pointerEvents = "auto";
                     highlightLine();
+                    error = true;
 
                     setTimeout(() => {
                         notificationElem.style.opacity = 0;
@@ -266,6 +281,7 @@ window.onload = () => {
         }
 
         highlight.style.opacity = 0;
+        error = false;
 
 
         //! Highlight line in textarea function
@@ -274,6 +290,7 @@ window.onload = () => {
             highlight.style.top = (pos.top + 30 + (i * 25.2)) + "px";
             highlight.style.left = (pos.left + 30) + "px";
             highlight.style.opacity = 0.3;
+            highlightCurrLine = i;
         }
 
     }
