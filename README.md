@@ -1,6 +1,6 @@
 # Visualization of a precedence graph for the Simple Assembly Line Balancing Problem
 
-[<kbd> <br> KeyBinding Button <br> </kbd>][KBD](https://admaron.github.io/ALBP-Graph-Visualization/)
+[<kbd> <br> KeyBinding Button <br> </kbd>](https://admaron.github.io/ALBP-Graph-Visualization/)
 
 
 ## Introduction
