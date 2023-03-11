@@ -28,9 +28,9 @@ window.onload = () => {
             highlight.style.top = (pos.top + 30 + (highlightCurrLine * 25.2)) + "px";
             highlight.style.left = (pos.left + 30) + "px";
             highlight.style.opacity = 0.3;
+        } else {
+            generateConnections();
         }
-
-        generateConnections();
     });
 
 
