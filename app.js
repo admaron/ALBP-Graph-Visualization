@@ -29,6 +29,7 @@ window.onload = () => {
             highlight.style.left = (pos.left + 30) + "px";
             highlight.style.opacity = 0.3;
         } else {
+            console.clear();
             generateConnections();
         }
     });
