@@ -1,5 +1,7 @@
 # Visualization of a precedence graph for the Simple Assembly Line Balancing Problem
 
+[<kbd> <br> KeyBinding Button <br> </kbd>][KBD](https://admaron.github.io/ALBP-Graph-Visualization/)
+
 
 ## Introduction
 The main goal of the project is to create a visualization of a precedence graph for the Simple Assembly Line Balancing Problem (ALBP) based on data from a TXT file or user input. Main functionalities implemented in this project are:
