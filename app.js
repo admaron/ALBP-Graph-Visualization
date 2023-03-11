@@ -111,12 +111,33 @@ window.onload = () => {
 
     //! Menu button handler
     sourceBTN.addEventListener("click", () => {
-        if (sourceWRAP.classList.contains("hide")) {
-            sourceWRAP.classList.remove("hide");
-        } else {
-            sourceWRAP.classList.add("hide");
+        if (!error) {
+            if (sourceWRAP.classList.contains("hide")) {
+                sourceWRAP.classList.remove("hide");
+            } else {
+                sourceWRAP.classList.add("hide");
+            }
         }
     })
+
+
+    function errorHandler() {
+        let nodeConnection = document.querySelectorAll(".leader-line");
+        let columns = document.querySelectorAll(".nodeColumnds");
+
+        error = true;
+
+        Data = [];
+        nodesStorage = [-1];
+
+        nodeConnection.forEach(e => {
+            e.remove();
+        });
+
+        columns.forEach(e => {
+            e.remove();
+        });
+    }
 
 
     //! Data parsing function
@@ -147,7 +168,7 @@ window.onload = () => {
             highlight.style.top = (pos.top + 30 + (highlightCurrLine * 25.2)) + "px";
             highlight.style.left = (pos.left + 30) + "px";
             highlight.style.opacity = 0.3;
-            error = true;
+            errorHandler();
 
             setTimeout(() => {
                 notificationElem.style.opacity = 0;
@@ -189,7 +210,7 @@ window.onload = () => {
             notificationElem.style.opacity = 1;
             notificationElem.style.pointerEvents = "auto";
             highlightLine();
-            error = true;
+            errorHandler();
 
             setTimeout(() => {
                 notificationElem.style.opacity = 0;
@@ -218,7 +239,7 @@ window.onload = () => {
             notificationElem.style.opacity = 1;
             notificationElem.style.pointerEvents = "auto";
             highlightLine();
-            error = true;
+            errorHandler();
 
             setTimeout(() => {
                 notificationElem.style.opacity = 0;
@@ -245,7 +266,7 @@ window.onload = () => {
             notificationElem.style.opacity = 1;
             notificationElem.style.pointerEvents = "auto";
             highlightLine();
-            error = true;
+            errorHandler();
 
             setTimeout(() => {
                 notificationElem.style.opacity = 0;
@@ -266,7 +287,7 @@ window.onload = () => {
                     notificationElem.style.opacity = 1;
                     notificationElem.style.pointerEvents = "auto";
                     highlightLine();
-                    error = true;
+                    errorHandler();
 
                     setTimeout(() => {
                         notificationElem.style.opacity = 0;
