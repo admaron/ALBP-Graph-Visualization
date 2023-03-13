@@ -29,8 +29,8 @@ window.onload = () => {
             highlight.style.left = (pos.left + 30) + "px";
             highlight.style.opacity = 0.3;
         } else {
-            console.clear();
             generateConnections();
+            console.clear();
         }
     });
 
@@ -149,6 +149,10 @@ window.onload = () => {
             notificationElem.querySelector("p").innerText = 'No input data!';
             notificationElem.style.opacity = 1;
             notificationElem.style.pointerEvents = "auto";
+            highlight.style.top = 0;
+            highlight.style.left = 0;
+            highlight.style.opacity = 0;
+            errorHandler();
 
             setTimeout(() => {
                 notificationElem.style.opacity = 0;
@@ -204,7 +208,7 @@ window.onload = () => {
 
 
         //! Data structure check
-        let regex = /([A-Z]{1,}p{1} [0-9]{1,} [0-9]{1,} (\"succs\"|\"preds\"){1} \[{1}[0-9, ]{1,}\]{1},{1})/i;;
+        let regex = /([A-Z]{1,}p{1} [0-9]{1,} [0-9]{1,} (\"succs\"|\"preds\"){1} \[[0-9]{1,}((, [0-9]{1,}){0,})\]{1})/i;;
 
         if (!regex.test(data)) {
             notificationElem.querySelector("p").innerText = 'Incorrect input data structure - Line ' + (i + 1);
