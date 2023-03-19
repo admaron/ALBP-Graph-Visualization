@@ -484,14 +484,25 @@ window.onload = () => {
 
         //! Connection colision detection function
         function validateLine(currentLine) {
-            if (currentLine.startNode.top == currentLine.endNode.top) {
+            if (currentLine.startNode.top == currentLine.endNode.top || currentLine.startNode.left == currentLine.endNode.left) {
                 return true;
             } else {
-                for (let i = 0; i < Lines.length - 1; i++) {
-                    if ((currentLine.startNode.top < Lines[i].startNode.top && currentLine.endNode.top > Lines[i].endNode.top) || (currentLine.startNode.top > Lines[i].startNode.top && currentLine.endNode.top < Lines[i].endNode.top)) {
-                        if ((currentLine.startNode.left == Lines[i].startNode.left && currentLine.endNode.left == Lines[i].endNode.left)) {
-                            LineErrorNode = currentLine.end;
-                            return false;
+                if (window.screen.width > 1025) {
+                    for (let i = 0; i < Lines.length - 1; i++) {
+                        if ((currentLine.startNode.top < Lines[i].startNode.top && currentLine.endNode.top > Lines[i].endNode.top) || (currentLine.startNode.top > Lines[i].startNode.top && currentLine.endNode.top < Lines[i].endNode.top)) {
+                            if ((currentLine.startNode.left == Lines[i].startNode.left && currentLine.endNode.left == Lines[i].endNode.left)) {
+                                LineErrorNode = currentLine.end;
+                                return false;
+                            }
+                        }
+                    }
+                } else {
+                    for (let i = 0; i < Lines.length - 1; i++) {
+                        if ((currentLine.startNode.left < Lines[i].startNode.left && currentLine.endNode.left > Lines[i].endNode.left) || (currentLine.startNode.left > Lines[i].startNode.left && currentLine.endNode.left < Lines[i].endNode.left)) {
+                            if ((currentLine.startNode.top == Lines[i].startNode.top && currentLine.endNode.top == Lines[i].endNode.top)) {
+                                LineErrorNode = currentLine.end;
+                                return false;
+                            }
                         }
                     }
                 }
