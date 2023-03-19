@@ -175,6 +175,7 @@ header {
     left: 0;
     width: 100%;
     height: 100vh;
+    max-height: 100vh;
     display: flex;
     padding: 75px;
     z-index: 10;
@@ -187,6 +188,7 @@ header {
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        min-width: 200px;
 
         .node {
             width: 75px;
@@ -240,5 +242,11 @@ header {
         .node {
             transform: rotate(-90deg);
         }
+    }
+
+    #notification {
+        position: fixed;
+        bottom: auto;
+        top: 90%;
     }
 }
