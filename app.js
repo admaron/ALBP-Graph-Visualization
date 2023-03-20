@@ -210,7 +210,7 @@ window.onload = () => {
 
 
             //! Data structure check
-            let regex = /([A-Z]{1,}p{1} [0-9]{1,} [0-9]{1,} (\"succs\"|\"preds\"){1} \[[0-9]{1,}((, [0-9]{1,}){0,})\]{1})/i;;
+            let regex = /([A-Z]{1,}p{1} [0-9]{1,} [0-9]{1,} (\"succs\"|\"preds\"){1} \[[0-9]{1,}((, [0-9]{1,}){0,})\]{1},{1})/i;;
 
             if (!regex.test(data)) {
                 highlightLineUpdate(false, i);
